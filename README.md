@@ -1,4 +1,3 @@
-Absolutely! Here's a **comprehensive, beginner-friendly documentation** for setting up your **Crypto ETL pipeline with Prefect 2.x**, including environment setup, flow execution, and UI usage. You can use this as a `README.md`.
 
 ---
 
