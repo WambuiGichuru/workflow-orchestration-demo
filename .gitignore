@@ -1,1 +1,50 @@
-*.env
+﻿# Python
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+*.pyc
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+workflow-orchestration-demo/
+
+# Prefect
+.prefect/
+.prefectignore
+*-deployment.yaml
+deployment-*.yaml
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+data/
+orchestrated-etl/data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temp files
+*.tmp
+*.temp
+
+# Project specific
+crypto_etl_flow-*.yaml
