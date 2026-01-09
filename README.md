@@ -38,7 +38,10 @@ cd workflow-orchestration-demo
 Using `uv`:
 
 ```bash
-uv venv .workflow-orchestration-demo
+uv venv .workflow-orchestration-demo # to avoid certain callback/definition errors ahead, you can look into changing the name of your venv to be just venv, python -m venv venv
+
+# incase of venv activation issues use, Set-ExecutionPolicy ByPass -Scope Process 
+# then activate with the usual, .venv/Scripts/Activate (change the backslash)
 ```
 
 Activate the environment:
@@ -57,12 +60,14 @@ pip install -r requirements.txt
 
 Dependencies include:
 
-* `prefect`
+* `prefect`  #take note for windows some versions may differ, therefore pip install prefect==2.16.6
+* 'pydantic' # for windows as well, pip install pydantic==2.8.2
 * `pandas`
 * `requests`
-* `python-dotenv`
-* `sqlite3` (standard library)
-* `zoneinfo` (Python ≥ 3.9)
+* `python-dotenv` # not necessary for windows as it is already within pandas, just write in the terminal, pandas requests python-dotenv tzdata
+* `sqlite3` (standard library) # you can comment out this requirement
+* `zoneinfo` (Python ≥ 3.9)  # not necessary in windows is already in another library
+* 'griffe' # to avoid certain looping dependancy issues you will need to install this, pip install griffe==0.30.0
 
 ---
 
@@ -100,6 +105,7 @@ In a separate terminal (or same, new shell):
 ```bash
 prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api
 ```
+# after initializing the prefect URL, go to a new terminal to continue the steps but ensure not kill the one that has the prefect url, This makes sure the page stays active
 
 Check:
 
@@ -142,7 +148,8 @@ You will see:
 * **Artifacts**: optional outputs like DataFrame previews
 
 ---
-
+# remember to create a prefect agent to be able to create and run the deployment: 
+ use, prefect agent start -q 'default'
 ## Step 9 — Optional: Create a deployment
 
 To schedule or trigger flows from UI:
